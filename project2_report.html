@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Project 2 Report</title>
+    <style>
+      :root {
+        --color-neutral-95: hsl(220 10% 95%);
+        --color-neutral-90: hsl(220 10% 90%);
+        --color-neutral-80: hsl(220 10% 80%);
+        --color-neutral-70: hsl(220 10% 70%);
+        --color-neutral-60: hsl(220 10% 60%);
+        --color-neutral-50: hsl(220 10% 50%);
+        --color-neutral-40: hsl(220 10% 40%);
+        --color-neutral-30: hsl(220 10% 30%);
+        --color-neutral-20: hsl(220 10% 20%);
+        --color-neutral-10: hsl(220 10% 10%);
+      }
+
+      html {
+        font: 100%/1.5 system-ui;
+        counter-reset: figure;
+        background: var(--color-neutral-95);
+        max-width: min(75vw, 80em);
+        margin: 0 auto;
+      }
+
+      /* Headings */
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        line-height: 1.1;
+        font-weight: 600;
+        text-wrap: balance;
+      }
+
+      h1,
+      h2 {
+        border-bottom: 1px solid var(--color-neutral-80);
+        padding-bottom: 0.2em;
+      }
+
+      h1 {
+        margin-block: 1em 0.5rem;
+        font-size: clamp(2.5em, 150% + 2vh + 2vw, 10vmin);
+        font-weight: 800;
+
+        small {
+          display: block;
+          width: fit-content;
+          padding: 0.2em 0.5em;
+          margin-inline: auto;
+          color: white;
+          background: var(--color-neutral-40);
+          font-size: 40%;
+          text-transform: uppercase;
+          white-space: nowrap;
+        }
+      }
+
+      h2 {
+        font-size: 180%;
+        color: var(--color-neutral-30);
+      }
+
+      h3 {
+        font-size: 130%;
+      }
+
+      /* Lists */
+
+      ul,
+      ol {
+        padding-inline-start: 2em;
+      }
+
+      li {
+        &::marker {
+          color: var(--color-neutral-40);
+        }
+
+        + li {
+          margin-top: 0.2em;
+        }
+      }
+
+      /* Sectioning elements */
+
+      header {
+        padding-block: 1em;
+        text-align: center;
+      }
+
+      main {
+        background: white;
+        color: var(--color-neutral-20);
+        border-radius: 1rem;
+        padding: 0.1rem 2rem;
+      }
+
+      /* Figures */
+
+      figure {
+        margin: 1em 0;
+        padding: 0.5rem;
+        margin-inline: -0.5em;
+        border: 1px solid var(--color-neutral-80);
+        box-shadow: 0 0.1em 0.2em var(--color-neutral-95);
+        text-align: center;
+        background: white;
+
+        > figcaption {
+          font: 500 75% var(--font-sans);
+          background: var(--color-neutral-95);
+          padding: 0.5rem;
+          margin: -0.5rem;
+          margin-top: 0.5rem;
+          counter-increment: figure;
+          text-align: left;
+
+          &::before {
+            content: 'Figure ' counter(figure) ': ';
+            font-weight: bold;
+            color: var(--color-neutral-40);
+          }
+
+          a:not(:hover, :focus, :active) {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-color: color-mix(
+              in lab,
+              currentColor,
+              transparent 70%
+            );
+          }
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        <small>Assignment 4</small>
+        Persuasive or Deceptive Visualization?
+      </h1>
+
+      <p><strong>Akshay Uppal</strong> — <em>akuppal@ucsd.edu</em></p>
+    </header>
+
+    <main>
+      <h2>Proposition: Increase in use of water transport in global trade increases net carbon emissions, resulting in higher sea levels.</h2>
+
+      <section>
+        <h3>FOR the Proposition</h3>
+
+        <figure>
+          <img src="for_plot_1.png" alt="Line chart comparing water transport CO₂ emissions and global sea level rise from 1995 to 2018." />
+          <figcaption>CO₂ emissions from water transport and global average sea level both rise between 1995 and 2018 showing the correlation between sea levels and carbon emission from water transport.</figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+
+        <ul>
+          <li>Use of a dual-axis plot (CO₂ emissions and sea level rise) visually suggests a causal relationship between the two variables making viewers compare the 2 values thinking they both have equal impact. (Score: -1)</li>
+          <li>Matching the upward slopes by adjusting y-axis scales emphasizes synchronized growth in emissions and sea levels. (Score: -0.5)</li>
+          <li>Color-coding CO₂ emissions in green and sea level rise in blue leverages environmental associations to reinforce context. (Score: +1)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>AGAINST the Proposition</h3>
+
+        <figure>
+          <img src="against_plot_1.png" alt="Side-by-side line charts: Water transport CO₂ emissions per $1M output (declining) and average global sea level change (rising) from 1995 to 2018." style="max-width: 100%; height: auto;" />
+          <figcaption>There is a steady decrease in water transport CO₂ emissions per $1M output since 1995, yet global sea levels have continued to rise, suggesting that water transport may not be a primary driver of sea level change.</figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+
+        <ul>
+          <li>Separated emissions and sea levels into two side-by-side charts to avoid implying direct causality but still making readers try to make a comparison between the 2 plots. (Score: -0.5)</li>
+          <li>Shaded the area below each line to emphasize the contrast between declining emissions per $1M and rising sea levels. (Score: -0.5)</li>
+          <li>Used light green and light blue colors to maintain clear, neutral environmental associations. (Score: +1)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Final Reflection</h2>
+
+        <p>
+          This project challenged me to think beyond simply "visualizing the data" and focus more on trying to convey a message using graphs. I found it surprisingly difficult to walk the line between being persuasive and being deceptive, especially when minor choices like color or trend emphasis had such large impact. Also choosing the right data which helped me convey messages for both sides was very difficult to find.<br><br>
+          
+          One of the most interesting realizations for me was how easily trust in a visualization can be manipulated without altering the data itself. For example, using a dual-axis plot in the “FOR” visualizations made it very easy to imply relationship between emissions and sea level rise, even though I knew the data only showed correlation. Meanwhile, in the “AGAINST” visualizations, separating charts and using neutral colors framed the same data in a more skeptical, detached way. These small shifts completely changed the narrative. I learned that graphs can be used to tell a story in any way you want without actually changing anything making it extremely powerful.<br><br>
+          
+          To me, ethical visualization means being honest about uncertainty, assumptions, and limitations while still communicating a clear point. Acceptable persuasive choices help a viewer understand a position while still giving them room to think critically. This project didn’t just teach me to spot deceptive techniques, it also taught me that the most powerful visualizations are the ones that persuade because they are thoughtful, transparent, and fair.
+          </p>          
+      </section>
+    </main>
+  </body>
+</html>
